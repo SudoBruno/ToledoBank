@@ -26,11 +26,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function signIn({ email, password }: signInCredentials) {
     try {
       const data = {
-        email: email,
+        login: email,
         password: password,
       };
 
-      const response = await api.post('/sessions', data);
+      const response = await api.post('/authentication', data);
 
       api.defaults.headers['Authorization'] = `Bearer ${response.data.token}`;
 
